@@ -6,6 +6,25 @@
 import requests
 from json import *
 
+# this def will get the users location
+def GetLoc():
+	loc_string = input("Enter the location you wish to know the current weather for: ").lower()
+	temp_string = input("Enter F for Farenheit or C for Celsius.").lower()
+	
+	while True:
+		if 'f' in temp_string:
+			temp = 'Farenheit'
+			break
+		elif 'c' in temp_string:
+			temp = 'Celsius'
+			break
+		else:
+			print("enter something that isn't shit.")
+
+	return locstring, temp_string
+
+GetLoc()
+
 package = {
 	'APPID': '0de4ba8217e33c57978bb8286eeef89e',
 	'q': 'Portland'
