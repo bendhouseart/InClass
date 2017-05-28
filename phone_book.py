@@ -1,12 +1,22 @@
 import os
+import pandas as pd
 
 run_bool = True
 import csv
 
+'''
 with open('MOCK_DATA.csv', 'r') as datafile:
     book = csv.DictReader(datafile)
     for row in book:
         print('first name {}, last name {}, number {}'.format(row['first_name'], row['last_name'], row['phone']))
+'''
+
+with open('MOCK_DATA.csv', 'r') as datafile:
+	book = pd.read_csv(datafile, sep=',')
+
+print(book)
+
+
 
 
 # def search():
@@ -19,7 +29,7 @@ with open('MOCK_DATA.csv', 'r') as datafile:
 #                 print('name not found')
 
 
-print(book['Vilma'])
+
 
 
 def __init__(self, name, number):
