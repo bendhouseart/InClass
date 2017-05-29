@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd5fcd98-c176-4da7-bbd0-9be028ae55c8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.chuck_norris.py.swp" afterPath="$PROJECT_DIR$/.chuck_norris.py.swp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chuck_norris.py" afterPath="$PROJECT_DIR$/chuck_norris.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phone_book.py" afterPath="$PROJECT_DIR$/phone_book.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.phone_book_really.py.swp" afterPath="$PROJECT_DIR$/.phone_book_really.py.swp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phone_book_really.py" afterPath="$PROJECT_DIR$/phone_book_really.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,7 +51,7 @@
       <file leaf-file-name="conners_code.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conners_code.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
+            <state relative-caret-position="23">
               <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
               <folding />
             </state>
@@ -109,6 +107,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="961" />
     <option name="width" value="959" />
     <option name="height" value="1079" />
   </component>
@@ -421,8 +420,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="959" height="1079" extended-state="4" />
-    <editor active="true" />
+    <frame x="961" y="0" width="959" height="1079" extended-state="4" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.511811" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -678,7 +676,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conners_code.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
+        <state relative-caret-position="23">
           <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding />
         </state>
