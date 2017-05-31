@@ -1,52 +1,24 @@
 import os
-import pandas as pd
-
 run_bool = True
-import csv
-
-'''
-with open('MOCK_DATA.csv', 'r') as datafile:
-    book = csv.DictReader(datafile)
-    for row in book:
-        print('first name {}, last name {}, number {}'.format(row['first_name'], row['last_name'], row['phone']))
-'''
-
-with open('MOCK_DATA.csv', 'r') as datafile:
-	book = pd.read_csv(datafile, sep=',')
-
-print(book)
+def clear_screen():
+    os.system('clear')
 
 
-
-
-# def search():
-#     name = input('enter a first name:  ')
-#     for n in book:
-#         for x in n:
-#             if name in n['first_name']:
-#                 print('first {}, last{}'.format(n['first_name'], n['last_name']))
-#             else:
-#                 print('name not found')
-
-
-
-
-
-def __init__(self, name, number):
-    self.name = name
-    self.number = number
-
+class phone_book_entry(object):
+    def __init__(self,name, number):
+        self.name = name
+        self.number = number
 
 def create_entry(name, number, book):
     book[name] = number
 
-
 def delete_entry(name, book):
     del book[name]
 
-
-def edit_entry(name, book):
+def edit_entry(name,book):
     to_be_edited = name, book[name]
+
+
 
 
 while run_bool:
@@ -57,8 +29,7 @@ while run_bool:
         print('whoops')
         continue
     if selection == 's':
-        # query = input('Enter the name you\'d like to search for: ').lower()
-        search()
+        query = input('Enter the name you\'d like to search for: ').lower()
     elif selection == 'c':
         name = input('Enter the first name of the contact you\'d like to create: ')
     elif selection == 'e':
@@ -69,4 +40,4 @@ while run_bool:
         quit()
     else:
         print('Please enter a selection from the menu given above.')
-        # clear_screen()
+    #clear_screen()
