@@ -1,6 +1,6 @@
 suit = {0: 'Clubs', 1: 'Diamonds', 2: 'Hearts', 3: 'Spades'}
 rank = {'a': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
-		'9': 9, '10': 10, 'A': 11, 'J': 10, 'Q': 10, 'K': 11}
+		'9': 9, '10': 10, 'A': 1, 'J': 10, 'Q': 10, 'K': 10}
 
 suit_list = ['clubs', 'spades', 'diamonds', 'hearts']
 rank_list = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
@@ -13,7 +13,7 @@ class Card:
 		self.rank = rank
 
 class Deck:
-	def __init__(self,no_decks=6):
+	def __init__(self, no_decks=6):
 		self.deck = self.create_deck(no_decks)
 		self.shuffle_deck()
 
@@ -39,6 +39,35 @@ class Deck:
 		a_card = self.deck.pop(0)
 		return a_card
 
+
+class Hand:
+	def __init__(self, card = None):
+		self.hand = []
+
+	def hit_me(self, deck):
+		self.hand.append(deck.draw())
+
+	def handsome(self):
+		to_sum = []
+		contains_ace = False
+		for card in self.hand:
+			to_sum.append(rank[card.rank])
+			if 'a' in card.rank:
+				contains_ace = True
+			elif 'A' in card.rank:
+				contains_ace = True	
+		value = sum(to_sum)
+		if contains_ace == True:
+			if value < 21 and (value + 10) <= 21:
+				value += 10		
+		else:
+			value = sum(to_sum)
+
+		return value	
+
+	def discard(self):
+		self = []
+
 six_decks = Deck()
 
 for card in six_decks.deck:
@@ -55,3 +84,13 @@ print(six_decks)
 decks = Deck()
 
 decks.cut()
+
+my_first_hand = Hand()
+
+print('This is an initalized hand with nothing in it: {}'.format(str(my_first_hand)))
+
+my_first_hand.hit_me(decks)	
+
+print(my_first_hand.hand[0])
+
+print(my_first_hand.handsome())
