@@ -6,6 +6,7 @@ suit_list = ['clubs', 'spades', 'diamonds', 'hearts']
 rank_list = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
 
 from random import shuffle
+import os
 
 class Card:
 	def __init__(self, suit, rank):
@@ -38,6 +39,8 @@ class Deck:
 	def draw(self):
 		a_card = self.deck.pop(0)
 		return a_card
+	
+			
 
 
 class Hand:
@@ -68,29 +71,103 @@ class Hand:
 	def discard(self):
 		self = []
 
-six_decks = Deck()
+	def show_hand(self):
+		for card in self.hand:
+			return str(card.rank) + ' of ' +str(suit[card.suit])
 
-for card in six_decks.deck:
-	print(card.suit, card.rank)
 
-print(len(six_decks.deck))
+def print_stars():
+	rows, columns = os.popen('stty size', 'r').read().split()
+	print('*'*int(columns))
 
-for card in six_decks.deck:
-	a_card = six_decks.draw()
-	print(a_card.suit, a_card.rank)
+def game_menu(players, num_players, deck):
+	print_stars()
+	print_stars()
+	print('''Welcome to Console Poker: The Reckoning
+Currently on the Table:''')
+	print('Dealer is showing: ', players[0].show_hand())
+	for i in range(1, num_players):
+		print('Player ' + str(i) + ' is holding {}'.format(players[i].show_hand()))
+	print_stars()
+	print_stars()
 
-print(six_decks)
+	advance = ''
 
-decks = Deck()
+	while 'c' not in advance:
+		advance = input('''If a player wishes to hit enter that player's integer number, else enter C to continue: '''.lower())
+		try:
+			if 1 <= int(advance) <= num_players:
+				players[int(advance)].hit_me(deck)
+		except:
+			print('Please enter a valid player input.')
+			continue	
 
-decks.cut()
+''' Here we are starting the game by asking the user how many decks
+  	they will be using to play black jack. '''
 
-my_first_hand = Hand()
+while True:
+	try:
+		num_decks = int(input('Enter the number of decks to be played in this game: '))
+		break
+	except ValueError:
+		os.system('clear')
+		print('Please enter an integer')
+		continue
 
-print('This is an initalized hand with nothing in it: {}'.format(str(my_first_hand)))
 
-my_first_hand.hit_me(decks)	
+deck = Deck(num_decks)
 
-print(my_first_hand.hand[0])
 
-print(my_first_hand.handsome())
+''' Here we will get the number of players playing the game, not including    the dealer'''
+
+while True:
+	try:
+		num_players = int(input('Enter the number of players who wish to play: '))
+		os.system('clear')
+		break
+	except ValueError:
+		os.system('clear')
+		print('Please enter an integer.')
+		continue
+
+''' Here we will put our players and dealer into existence and deal them a card each. For the sake of consistency 
+	the dealer will always be refered to as player 0 in our code '''
+
+players = []
+
+for i in range(0,(num_players + 1)):
+	new_player = Hand()
+	players.append(new_player)
+	players[i].hit_me(deck)
+		
+
+''' And now the game begins!'''
+
+game_state = True
+while game_state == True:
+	game_menu(players, num_players, deck)
+#	os.system('clear')
+#	print_stars()
+#	print_stars()
+#	print('''Welcome to Console Poker: The Reckoning
+#Currently on the Table:''')
+#	print('Dealer is showing: ', players[0].show_hand())
+#	for i in range(1, num_players):
+#		print('Player ' + str(i) + ' is holding {}'.format(players[i].show_hand()))
+#	print_stars()
+#	print_stars()
+#
+#	advance = ''
+#
+#	while 'c' not in advance:
+#		advance = input('''If a player wishes to hit enter that player's integer number, else enter C to continue: '''.lower())
+#		try:
+#			if 1 <= int(advance) <= num_players:
+#			players[int(advance)].hit_me(deck)
+#			except:
+#				print('Please enter a valid player input.')
+#				continue				
+				
+	game_state = False	
+
+
